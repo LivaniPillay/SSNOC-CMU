@@ -1,0 +1,55 @@
+<!-- s -->
+
+<div ng-controller="mainController" class="container-fluid">
+			<form class="form-signin">
+
+		      <div class="row login">
+		      	<div class='col-xs-12 col-md-12'>
+		      	<h2>BRICS - SSNOC </h2>
+		       <h3 class="form-signin-heading">SignIn</h3>
+		      	</div>
+		      </div>
+
+		      <div class="row login">
+		      	<div class='col-xs-2 col-md-2'>
+		      	<img  src="images/User.png"></img>
+		      	</div>
+		      	<div class='col-xs-10 col-md-10'>
+						<input ng-model="member.username" type="text" id="name" class="form-control"name="username" placeholder="Username" required autofocus>
+						</div>
+		      </div>
+		      
+		      <div class="row login">
+		      	<div class='col-xs-2 col-md-2'>
+		        <img  src="images/pass.png"></img>
+		        </div>
+		        <div class='col-xs-10 col-md-10'>
+		        <input ng-model="member.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+						</div>
+		      </div>
+
+		      <div ng-show="!isExistingMember" class="row login">
+		      	<div class='col-xs-2 col-md-2'>
+		        <img  src="images/pass.png"></img>
+		        </div>
+		      	<div class='col-xs-10 col-md-10'>
+		        <input  ng-model="member.confirmPassword" id="hiddenPassword" class="form-control" placeholder=" Confirm Password" type="password">
+		        </div>
+		      </div>
+
+
+				<div class="row login">
+		      	<div class='col-xs-12 col-md-12'>
+		      		<button ng-show="!isExistingMember" ng-click="signup()" type="submit" class="btn btn-success mobile">Sign Up</button>
+					<button ng-click="login()" type="submit" class="btn btn-success pull-right mobile">Join</button>
+ 						</div>
+		      </div>
+
+				<div class="row login">
+			      	<div class='col-xs-12 col-md-12'>
+					<p ng-bind="message" style="color:red;"></p>
+					</div>
+		      </div>
+		    
+		   </form>
+</div> 

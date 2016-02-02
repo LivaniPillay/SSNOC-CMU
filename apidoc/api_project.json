@@ -1,0 +1,1 @@
+{  "name": "Ssnnoc API",  "version": "0.1",  "description": "BRICS Team",  "header": {    "title": "Ssnoc API documentation"  },  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2015-10-09T08:41:47.383Z",    "url": "http://apidocjs.com",    "version": "0.13.1"  }}

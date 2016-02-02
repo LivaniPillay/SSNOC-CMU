@@ -1,0 +1,21 @@
+ <div class="performance ssnoc-container container-fluid">
+
+	 <div class='row' style="margin-left:20%;">
+	 	<div class='col-xs-7 col-sm-7 col-md-5'>
+      		<input ng-model="delay" class="col-xs-8 col-sm-8 col-md-8 chatMessage sendMsg" id="ex3" type="number" style="height:34px;" placeholder="Test duration (milliseconds)" required autofocus>
+      	</div>
+      	<div class='col-xs-2 col-sm-2 col-md-2' style="margin-right:10px;">
+     	 	<button ng-click="performTest()" type="submit" class="btn btn-success">PerformTest</button>
+    	</div>
+    </div>
+
+    <div class='col-md-12' style="margin-left:30%; margin-top:20px;">
+      <h4>Result</h4>
+      <p ng-if="countCalls > 0">
+      		Performance: 
+	  		<span ng-bind="countCalls"> </span>	iterations 
+	  		in 
+	  		<span ng-bind="resultTime"> </span> ms
+	  </p>
+	 </div>
+</div> 

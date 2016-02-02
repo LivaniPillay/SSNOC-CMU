@@ -1,0 +1,47 @@
+
+<div class="ssnoc-container privateChat chatArea">
+<div ng-show='msgAlert' class="alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>You Got a New Message!</strong>
+</div>
+
+<div ng-show='searchAlert' class="alert alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>No matching results!</strong>
+</div>
+
+  <div class="row">
+        <form role="search">
+        <div class="form-group col-xs-9 col-sm-9 col-md-10">
+          <input ng-model="searchMessage" type="text" class="form-control" placeholder="Search">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-1 pull-right">
+            <button type="submit" class="btn btn-default" ng-click="searchPrivateMessages()"><img src='/images/search.png'/></button>
+        </div>
+       </form>
+  </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <h4 ng-bind="receiver.name"></h4>
+  </div>
+</div>
+    <div class="chatArea">
+      <p ng-repeat="message in messages" ng-show="isSearchMsgShown(message._id, messages)" >
+       <b><span ng-bind="getName(message.member_id)"></span></b>
+        <span ng-bind="message.message"></span>
+        <span ng-bind="message.timestamp" class = "posttime"></span>
+        (<span ng-bind="message.status"></span>)
+      <p>     
+      <button type="button" class="btn btn-default" ng-show="isShowMoreButtonShown(messages)" ng-click="showMore()">Show More</button>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-9 col-sm-9 col-md-10">
+          <input ng-model="chatMessage" class="col-xs-11 chatMessage sendMsg" id="ex3" type="text" height="20%"placeholder="Type your message.." required autofocus>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-1 pull-right">
+          <button ng-click="sendMessage()" type="submit" class="btn btn-success">Send</button>
+        </div>
+      </div>
+
+</div>

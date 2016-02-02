@@ -1,0 +1,158 @@
+body {
+  font: 13px/20px 'Arial', Tahoma, Verdana, sans-serif;
+  padding-bottom: 40px;
+}
+/*.container {
+  margin: 80px auto;
+  width: 400px;
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+}*/
+.login{
+  margin-bottom: 10px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading {
+  margin-bottom: 10px;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+.ssnoc-container {
+  margin: 10px auto;
+  height:100%;
+  width: 90%;
+}
+.directory{
+  height:90%;
+  width: 20%;
+  margin-right: 10px;
+  text-align: center;
+  background-color: #FFE4E1;
+  float: right;
+}
+
+.navigation{
+  margin-bottom: 5px;
+}
+
+.onlineDirectory{
+  margin-top: 70px;
+  margin: 10px auto;
+  height:40%;
+  width: 80%;
+  background-color:#90EE90;
+  overflow: scroll;
+}
+
+.offlineDirectory{
+  margin: 10px auto;
+  height:40%;
+  width: 80%;
+  background-color:#F08080;
+  overflow: scroll;
+}
+
+.chatArea{
+  margin: 5px auto;
+  height:45%;
+  width: 100%;
+  background-color:#fff;
+  overflow-y: auto;
+  float: left;
+}
+
+.chatMessage{
+  min-height:34px;
+}
+
+.sendMsg {
+border-radius: 6px;
+width: 100%;
+border: 1px solid #e7e7e7;
+}
+
+.welcomeMsg {
+text-align: center;
+
+}
+
+#directory {
+ padding-right: 80px;
+
+}
+
+.directory-item
+{
+  margin: 10px 5px;
+}
+
+#logoutbt {
+  bottom: 250px;
+}
+
+.posttime{
+ float:right;
+ font-style: italic;
+}
+
+.panel {
+margin-bottom:0px;
+}
+.panel-default>.panel-heading{
+text-align: center;
+}
+
+.input-group-btn{
+text-align: center;
+}
+
+.btn-default{
+  background-color: #f5f5f5;
+}
+/*
+.alert-warning {
+    padding: 1px;
+    padding-bottom: 3px;
+}
+
+.alert-success {
+    padding: 1px;
+    padding-bottom: 3px;
+}*/
+
+button .mobile{
+    min-width:35px;
+    min-height:35px;
+}

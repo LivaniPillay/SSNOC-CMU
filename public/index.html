@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		    <meta charset="utf-8">
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		    <meta name="viewport" content="width=device-width, initial-scale=1">
+		    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+			<meta name="Join" content="">
+		    <meta name="CMU-Brics" content="">
+
+		    <title>SSNoC Brics</title>
+
+			 <!-- boostrap import-->
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			
+			<script src="libs/jquery-1.11.1.js"></script>		
+			<script src="libs/bootstrap.min.js"></script>
+
+			<script src="libs/angular.min.js"></script>
+			<script src="libs/angular-route.min.js"></script>
+      <script src="libs/spin.js"></script>
+      <script src="libs/angular-spinner.js"></script>
+      <script type="text/javascript" src="libs/angular-base64-upload.js"></script>
+
+     	<link rel="stylesheet" href="libs/bootstrap.min.css">
+			<link rel="stylesheet" href="libs/font-awesome.min.css">
+<!-- 
+      		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+			<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+ -->
+		  	<link href="css/signin.css" rel="stylesheet">
+
+			<!-- Angular Settings-->
+
+			<script src="js/core.js"></script>
+			<script src="js/services/service.js"></script>
+			<script src="js/controllers/mainController.js"></script> 
+			<script src="js/controllers/chatController.js"></script> 
+			<script src="js/controllers/privateChatController.js"></script> 
+			<script src="js/controllers/performanceTestController.js"></script> 
+      <script src="js/controllers/upload.js"></script> 
+
+
+	</head>
+
+<body ng-app="ssnoc">
+
+<div class="container-fluid" >
+   <div ng-if="authenticated">     
+     <div class="row col-md-12">
+      <!-- style="background-color:#E5FFFF" -->
+      <div class="col-xs-2 col-sm-2 col-md-2" style="margin-top:30px;">
+         <a href="" style="margin-left:10px;" id="nav-trigger"><img src="/images/directory.png"></a>
+      </div>
+      <div class="col-xs- col-sm-8 col-md-8"> 
+           <h2 class="bs-docs-featurette-title" style="text-align: center;">Brics SSNOC</h2>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2" style="margin-top:20px; margin-left: -10px;">
+             <p class="row pull-right"> 
+<!--             col-xs-1 col-sm-1 col-md-1 -->
+              <strong ng-bind="name"></strong>
+             </p>
+
+             <div class="row dropdown pull-right" style="margin-top:14px;">
+              <!-- col-xs-1 col-sm-1 col-md-1 -->
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:14px;">
+                  <img ng-src="/images/{{statusImgMap[status]}}"/ ></a>
+                <ul class="dropdown-menu">
+                  <li ng-repeat="status in statuses">
+                    <a ng-bind="status.name" ng-click="shareStatus(status.id)"></a>
+                  </li>
+                  <li><a ng-click="logout()" type="submit" ><b>Logout</b></a></li>
+                </ul>
+             </div>  
+            
+        </div>
+      </div>
+    </div>
+
+      <div class="row">
+    	     <div ng-if="authenticated">	
+            <div class="col-xs-3 col-sm-3 col-md-1">
+            <!-- style="background-color:#FFE5FF"  -->
+            <nav class="navbar sidebar-navbar-collapse" id="menu-nav" >
+            <ul class="nav navbar-nav" >
+            <li style="width:90px;  word-wrap: break-word;"><a href="#/chatting">Chatting</a></li>
+            <li  style="width:90px;  word-wrap: break-word;"><a href="#/directory">Directory</a></li>
+            <!-- <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            </li> -->
+            <li  style="width:90px;  word-wrap: break-word;"><a href="#/announcements">Announcement</a> </li>
+
+            <li  style="width:90px;  word-wrap: break-word;"> <a href="#performance">Performance</a>  </li> 
+
+          </ul>
+          </nav><!--/.nav-collapse -->
+          </div>
+        </div>
+
+      <div id='main' class="col-xs-9 col-sm-10 col-md-11">
+        <!-- style="background-color:#E5FFE5" -->
+      	<div ng-view>	
+      	</div>
+      </div>
+
+    </div>
+
+</div>
+
+		<!-- 		// <script src="js/controllers/mainController.js"></script> 
+	<script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+		 -->
+		<!-- 
+		-->
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+
+	  var socket = io.connect();
+
+    $(document).ready(function(){
+      console.log("loaded doc");
+
+      console.log($("#nav-trigger"));
+    
+      $(document).on('click',"#nav-trigger", function(){
+        console.log("show nav");
+      //     var leftMargin = ($("#menu-nav").css('margin-left') === '0px') ? '-150px' : '0px';
+           
+           $("#menu-nav").css('margin-left');
+           if($("#menu-nav").attr('class') == 'navbar sidebar-navbar-collapse hide')
+           {
+            console.log('show');
+       
+             $("#menu-nav").animate({ 'margin-left' : 0 }, 600);
+              
+              $("#menu-nav").removeClass('hide');
+              $("#menu-nav").addClass('show');
+                  
+              $('#main').removeClass('col-xs-9 col-sm-10 col-md-11');
+              $('#main').removeClass('col-xs-12 col-sm-12 col-md-12');
+              $('#main').addClass('col-xs-9 col-sm-10 col-md-11');
+      
+           }
+           else{
+            console.log('hide');
+          
+             $("#menu-nav").animate({ 'margin-left' : -200 }, 500);
+             
+              $("#menu-nav").removeClass('show');
+              $("#menu-nav").addClass('hide');
+
+              $('#main').removeClass('col-xs-9 col-sm-10 col-md-11');
+              $('#main').removeClass('col-xs-12 col-sm-12 col-md-12');
+              $('#main').addClass('col-xs-12 col-sm-12 col-md-12');
+             
+           }
+      });
+
+    });
+
+	</script>
+ 
+	</body>
+</html>
+
